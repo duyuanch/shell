@@ -36,7 +36,7 @@ while [[ true ]]; do
                 "udp://:${listen_port}/${dest}:${port}"
             ],
             "ChainNodes": [
-                "ws://${dest}:12345/ws"
+                "ws://${dest}:12348/ws"
             ]
         }
 EOT
