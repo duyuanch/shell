@@ -12,6 +12,6 @@ read -p "请输入要转发的终止端口号:" end_port
 for (( port = $start_port; port <= $end_port; port++ )); do
   listen_port=`expr $port - 10000`
   echo "nohup ./gost -L=:${listen_port}/$dest:$port -F=ws://$dest:12348/ws &"
-  nohup ./gost -L=:${listen_port}/${dest}:${port} -F=ws://${dest}:12348/ws &
+  nohup ./gost -L=:${listen_port}/:${port} -F=ws://${dest}:12348/ws &
 done
 echo "安装成功"
