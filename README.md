@@ -21,6 +21,11 @@ wget -N --no-check-certificate https://raw.githubusercontent.com/shellhub/shellh
 wget -N --no-check-certificate https://raw.githubusercontent.com/shellhub/shellhub/master/ssmgr/ssmgr.sh && chmod +x ssmgr.sh && ./ssmgr.sh
 ```
 
+[Gost](https://github.com/shellhub/shellhub/blob/master/gost-multi.sh)
+``` bash
+wget -N --no-check-certificate https://raw.githubusercontent.com/shellhub/shellhub/master/gost-multi.sh && chmod +x gost-multi.sh && ./gost-multi.sh
+```
+
 ## Donations
 
 You can support me by scanning following QR code. Thanks in advance.
