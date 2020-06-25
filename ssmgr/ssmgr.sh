@@ -124,9 +124,15 @@ config(){
 }
 
 install_ssmgr(){
-  curl -sL https://rpm.nodesource.com/setup_12.x | bash -
-  yum install -y nodejs
-  npm i -g shadowsocks-manager --unsafe-perm
+  if [[ ${PM} = "apt" ]]; then
+    curl -sL https://deb.nodesource.com/setup_12.x | bash -
+    apt-get install -y nodejs
+    npm i -g shadowsocks-manager --unsafe-perm
+  elif [[ ${PM} = "yum" ]]; then
+    curl -sL https://rpm.nodesource.com/setup_12.x | bash -
+    yum install -y nodejs
+    npm i -g shadowsocks-manager --unsafe-perm
+  fi
 }
 
 run_ssgmr(){
