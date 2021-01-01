@@ -12,7 +12,7 @@ download() {
   echo "Congratulations! install successfully."
 }
 
-server() {
+client() {
   read -p "请输入要中转的服务器IP:" dest
   read -p "请输入要转发的起始端口号:" start_port
   read -p "请输入要转发的终止端口号:" end_port
@@ -69,27 +69,27 @@ EOT
   done
 }
 
-client() {
+server() {
   screen -S gost -dm ./gost -D -L "ws://:12346?path=/ws&rbuf=4096&wbuf=4096&compression=false"
 }
 
 main() {
   download
   PS3='Please enter your choice: '
-  options=("gost-server" "gost-client" "Exit")
+  options=("中转服务器" "目标服务器" "查看服务" "退出")
   select opt in "${options[@]}"
   do
       case $opt in
-          "gost-server")
-              server
-              ;;
-          "gost-client")
+          "中转服务器")
               client
               ;;
-          "Something else")
-              echo "you chose choice $REPLY which is $opt"
+          "目标服务器")
+              server
               ;;
-          "Exit")
+          "查看服务")
+              screen -ls
+              ;;
+          "退出")
               break
               ;;
           *) echo "Invalid option $REPLY";;
