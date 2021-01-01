@@ -96,3 +96,5 @@ main() {
       esac
   done
 }
+
+main
