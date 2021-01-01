@@ -28,7 +28,7 @@ wget -N --no-check-certificate https://raw.githubusercontent.com/shellhub/shell/
   ```
 * Server
   ``` bash
-  
+  ./gost -D -L "ws://:12345?path=/ws&rbuf=4096&wbuf=4096&compression=false"
   ```
 
 ## Donations
