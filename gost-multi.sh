@@ -40,7 +40,7 @@ EOT
                   "udp://:${listen_port}/${dest}:${port}"
               ],
               "ChainNodes": [
-                  "ws://${dest}:12345/ws"
+                  "ws://${dest}:12346/ws"
               ]
           }
 EOT
@@ -53,7 +53,7 @@ EOT
                   "udp://:${listen_port}/${dest}:${port}"
               ],
               "ChainNodes": [
-                  "ws://${dest}:12345/ws"
+                  "ws://${dest}:12346/ws"
               ]
           },
 EOT
@@ -70,7 +70,7 @@ EOT
 }
 
 client() {
-  screen -S gost -dm ./gost -D -L "ws://:12345?path=/ws&rbuf=4096&wbuf=4096&compression=false"
+  screen -S gost -dm ./gost -D -L "ws://:12346?path=/ws&rbuf=4096&wbuf=4096&compression=false"
 }
 
 main() {
