@@ -70,7 +70,7 @@ EOT
 }
 
 client() {
-  ./gost -D -L "ws://:12345?path=/ws&rbuf=4096&wbuf=4096&compression=false"
+  screen -S gost -dm ./gost -D -L "ws://:12345?path=/ws&rbuf=4096&wbuf=4096&compression=false"
 }
 
 main() {
