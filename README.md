@@ -22,13 +22,8 @@ wget -N --no-check-certificate https://raw.githubusercontent.com/shellhub/shell/
 ```
 
 [Gost](https://github.com/shellhub/shell/blob/master/gost-multi.sh)
-* Client
   ``` bash
   wget -N --no-check-certificate https://raw.githubusercontent.com/shellhub/shell/master/gost-multi.sh && chmod +x gost-multi.sh && ./gost-multi.sh
-  ```
-* Server
-  ``` bash
-  ./gost -D -L "ws://:12345?path=/ws&rbuf=4096&wbuf=4096&compression=false"
   ```
 
 ## Donations
