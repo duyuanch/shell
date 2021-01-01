@@ -9,7 +9,7 @@ download() {
     wget https://github.com/ginuerzh/gost/releases/download/v2.11.1/gost-linux-amd64-2.11.1.gz
     gzip -d ${file_name} && mv ${gost} gost && chmod +x gost
   fi
-  echo "Congratulations! install successfully."
+  echo "恭喜安装成功!!!"
 }
 
 client() {
@@ -75,7 +75,7 @@ server() {
 
 main() {
   download
-  PS3='Please enter your choice: '
+  PS3='请选择菜单: '
   options=("中转服务器" "目标服务器" "查看服务" "退出")
   select opt in "${options[@]}"
   do
