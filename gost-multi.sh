@@ -84,7 +84,7 @@ main() {
               server
               ;;
           "gost-client")
-              echo "client"
+              client
               ;;
           "Something else")
               echo "you chose choice $REPLY which is $opt"
