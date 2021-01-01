@@ -26,9 +26,7 @@ while [[ $start_port -le $end_port ]]; do
 EOT
   for (( port = $start_port; port <= `expr $start_port + 500` && port <= $end_port; port++ )); do
     listen_port=`expr $port + $offset`
-    echo "loop${port}"
     if [[ ${port} -eq `expr $end_port` ]]; then
-      echo "if"
       cat <<EOT >> gost.json
         {
             "Retries": 0,
@@ -42,7 +40,6 @@ EOT
         }
 EOT
     else
-      echo "else"
       cat <<EOT >> gost.json
         {
             "Retries": 0,
