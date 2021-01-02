@@ -4,10 +4,13 @@ echo "本脚本仅供学习交流，请勿用于其他用途，否则后果自�
 download() {
   file_name=gost-linux-amd64-2.11.1.gz
   gost="${file_name%.*}"
-  if [[ ! -f $file_name && ! -f $gost ]]; then
+  if [[ ! -f $file_name && ! -f "gost" ]]; then
+    echo "gost未安装【开始下载】"
     yum install wget -y
     wget https://github.com/ginuerzh/gost/releases/download/v2.11.1/gost-linux-amd64-2.11.1.gz
     gzip -d ${file_name} && mv ${gost} gost && chmod +x gost
+    else
+      echo "gost【已经下载】"
   fi
   echo "恭喜安装成功!!!"
 }
