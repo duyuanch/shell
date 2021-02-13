@@ -57,13 +57,13 @@ install_shadowsocks(){
   if [[ ${PM} = "apt" ]]; then
     apt-get install dnsutils -y
     apt install net-tools -y
-    apt-get install python-pip -y
+    apt-get install python3 -y
   elif [[ ${PM} = "yum" ]]; then
     yum install bind-utils -y
     yum install net-tools -y
-    yum install python-setuptools -y && easy_install pip
+    yum install python3 -y
   fi
-  pip install shadowsocks
+  pip3 install shadowsocks
   # start ssserver and run manager background
   ssserver -m aes-256-cfb -p 12345 -k abcedf --manager-address 127.0.0.1:4000 --user nobody -d start
   echo "ssserver -m aes-256-cfb -p 12345 -k abcedf --manager-address 127.0.0.1:4000 --user nobody -d start" >> /etc/rc.local # run on reboot
