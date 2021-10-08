@@ -27,6 +27,8 @@ plugins:
     host: '0.0.0.0'
     port: '80'
     site: 'http://${IP}'
+    admin_username: 'admin@gmail.com'
+    admin_password: '112233'
     # cdn: 'http://xxx.com' # 静态资源cdn地址，可省略
     #icon: 'icon.jpg' # 自定义首页图标，默认路径在 ~/.ssmgr 可省略
     # skin: 'default' # 首页皮肤，可省略

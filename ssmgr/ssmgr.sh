@@ -46,27 +46,40 @@ init_release(){
   else
     exit 1
   fi
-  # PM='apt'
 }
 
-# install shadowsocks
-install_shadowsocks(){
+# install utils
+install_utils(){
   # init package manager
   init_release
   #statements
   if [[ ${PM} = "apt" ]]; then
+    apt-get install screen -y
     apt-get install dnsutils -y
     apt install net-tools -y
     apt-get install python3 -y
+    curl -sL https://deb.nodesource.com/setup_12.x | bash -
+    apt-get install -y nodejs
+    npm i -g shadowsocks-manager --unsafe-perm
+    apt-get install redis -y # install redis
+    nohup redis-server &
   elif [[ ${PM} = "yum" ]]; then
+    yum update -y
+    yum install epel-release -y
+    yum install screen -y
     yum install bind-utils -y
     yum install net-tools -y
     yum install python3 -y
+    curl -sL https://rpm.nodesource.com/setup_12.x | bash -
+    yum install -y nodejs
+    npm i -g shadowsocks-manager --unsafe-perm
+    yum install redis -y
+    systemctl start redis
+    systemctl enable redis
   fi
   pip3 install shadowsocks
-  # start ssserver and run manager background
-  ssserver -m aes-256-cfb -p 12345 -k abcedf --manager-address 127.0.0.1:4000 --user nobody -d start
-  echo "ssserver -m aes-256-cfb -p 12345 -k abcedf --manager-address 127.0.0.1:4000 --user nobody -d start" >> /etc/rc.local # run on reboot
+  sed -i 's/cleanup/reset/' /usr/local/lib/python3.6/site-packages/shadowsocks/crypto/openssl.py
+  screen -S ss -dm ssserver -m aes-256-cfb -p 12345 -k abcedf --manager-address 127.0.0.1:4000
 }
 
 # Get public IP address
@@ -123,18 +136,6 @@ config(){
   fi
 }
 
-install_ssmgr(){
-  if [[ ${PM} = "apt" ]]; then
-    curl -sL https://deb.nodesource.com/setup_12.x | bash -
-    apt-get install -y nodejs
-    npm i -g shadowsocks-manager --unsafe-perm
-  elif [[ ${PM} = "yum" ]]; then
-    curl -sL https://rpm.nodesource.com/setup_12.x | bash -
-    yum install -y nodejs
-    npm i -g shadowsocks-manager --unsafe-perm
-  fi
-}
-
 run_ssgmr(){
   npm i -g pm2
   pm2 --name "ss" -f start ssmgr -x -- -c ss.yml
@@ -147,18 +148,6 @@ go_workspace(){
   cd ~/.ssmgr/
 }
 
-run_redis(){
-  if [[ ${PM} = "apt" ]]; then
-    apt-get install redis -y # install redis
-    nohup redis-server &
-  elif [[ ${PM} = "yum" ]]; then
-    yum install epel-release -y
-    yum update -y
-    yum install redis -y
-    systemctl start redis
-    systemctl enable redis
-  fi
-}
 
 main(){
   #check root permission
@@ -168,14 +157,14 @@ main(){
     exit 1
   else
     go_workspace
-    install_shadowsocks
-    install_ssmgr
+    install_utils
     config
-    run_redis
     run_ssgmr
     systemctl stop firewalld # stop firewall
     systemctl disable firewalld
+    rm -rf ss.template.yml webgui.template.yml config # clean files
   fi
+  echo 'Install successfully! Visit: http://$get_ip'
 }
 
 # start run script
