@@ -108,7 +108,14 @@ config(){
   if [[ $webgui = "y" ]]; then
     # write ip address
     echo "IP=$(get_ip)" >> config
-    # write email username
+    # write admin email for login website
+    read -p "Input admin email address:" admin_email
+    echo "admin_email=${admin_email}" >> config
+
+    read -p "Input admin email password:" admin_password
+    echo "admin_password=${admin_password}" >> config
+
+    # write email username for sending email
     read -p "Input your email address:" email_username
     echo "email_username=${email_username}" >> config
 
