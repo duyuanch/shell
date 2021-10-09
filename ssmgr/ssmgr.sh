@@ -164,7 +164,7 @@ main(){
     systemctl disable firewalld
     rm -rf ss.template.yml webgui.template.yml config # clean files
   fi
-  echo 'Install successfully! Visit: http://$get_ip'
+  echo "Install successfully! Visit: http://`get_ip`"
 }
 
 # start run script
