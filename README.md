@@ -1,5 +1,5 @@
 ## You can run from Gitpod online IDE
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/shellhub/shell)&nbsp;
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/duyuanch/shell)&nbsp;
 
 [MTProxy for Telegram](https://github.com/duyuanch/blog/issues/12)
 ``` bash
