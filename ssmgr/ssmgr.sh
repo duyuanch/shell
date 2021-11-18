@@ -146,7 +146,11 @@ config(){
 run_ssgmr(){
   npm i -g pm2
   pm2 --name "ss" -f start ssmgr -x -- -c ss.yml
-  pm2 --name "webgui" -f start ssmgr -x -- -c webgui.yml
+  if [[ $webgui = "y" ]]; then
+    pm2 --name "webgui" -f start ssmgr -x -- -c webgui.yml
+  else
+    echo "no webgui selected!!!"
+  fi
   pm2 save && pm2 startup # startup on reboot
 }
 
