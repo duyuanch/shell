@@ -80,7 +80,7 @@ install_utils(){
   # pip3 install shadowsocks
   pip3 install https://github.com/shadowsocks/shadowsocks/archive/master.zip -U
   sed -i 's/cleanup/reset/' /usr/local/lib/python3.6/site-packages/shadowsocks/crypto/openssl.py
-  screen -S ss -dm ssserver -m aes-256-cfb -p 12345 -k abcedf --manager-address 127.0.0.1:4000
+  screen -S ss -dm ssserver -m aes-256-gcm -p 12345 -k abcedf --manager-address 127.0.0.1:4000
 }
 
 # Get public IP address
