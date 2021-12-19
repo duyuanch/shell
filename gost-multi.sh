@@ -43,7 +43,7 @@ EOT
                   "udp://:${listen_port}/${dest}:${port}"
               ],
               "ChainNodes": [
-                  "ws://${dest}:12348/ws"
+                  "relay://${dest}:12348"
               ]
           }
 EOT
@@ -56,7 +56,7 @@ EOT
                   "udp://:${listen_port}/${dest}:${port}"
               ],
               "ChainNodes": [
-                  "ws://${dest}:12348/ws"
+                  "relay://${dest}:12348"
               ]
           },
 EOT
@@ -73,7 +73,7 @@ EOT
 }
 
 server() {
-  screen -S gost -dm ./gost -D -L "ws://:12348?path=/ws&rbuf=4096&wbuf=4096&compression=false"
+  screen -S gost -dm ./gost -L "relay://:12348"
 }
 
 main() {
