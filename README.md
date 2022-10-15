@@ -31,6 +31,11 @@ wget -N --no-check-certificate https://raw.githubusercontent.com/duyuanch/shell/
 wget -N --no-check-certificate https://raw.githubusercontent.com/duyuanch/shell/master/proxy/trojan_ubuntu.sh && chmod +x trojan_ubuntu.sh && ./trojan_ubuntu.sh
 ```
 
+[V2ray](#)
+``` bash
+bash <(curl -s -L https://raw.githubusercontent.com/duyuanch/shell/master/proxy/v2ray.sh)
+```
+
 ## Donations
 
 You can support me by scanning following QR code. Thanks in advance.
