@@ -431,8 +431,9 @@ auto_tls_config() {
 path_config_ask() {
 	echo
 	while :; do
-		echo -e "是否开启 网站伪装 和 路径分流 [${magenta}Y/N$none]"
-		read -p "$(echo -e "(默认: [${cyan}N$none]):")" path_ask
+		#echo -e "是否开启 网站伪装 和 路径分流 [${magenta}Y/N$none]"
+		#read -p "$(echo -e "(默认: [${cyan}N$none]):")" path_ask
+		path_ask=Y
 		[[ -z $path_ask ]] && path_ask="n"
 
 		case $path_ask in
@@ -458,9 +459,10 @@ path_config() {
 	echo
 	while :; do
 		echo -e "请输入想要 ${magenta} 用来分流的路径 $none , 例如 /233blog , 那么只需要输入 233blog 即可"
-		read -p "$(echo -e "(默认: [${cyan}233blog$none]):")" path
-		[[ -z $path ]] && path="233blog"
-
+		#read -p "$(echo -e "(默认: [${cyan}233blog$none]):")" path
+		#path=""
+		#[[ -z $path ]] && path="233blog"
+		path="233blog"
 		case $path in
 		*[/$]*)
 			echo
@@ -489,9 +491,9 @@ proxy_site_config() {
 		echo -e "然后打开你的域名时候...显示出来的内容就是来自 https://liyafly.com 的内容"
 		echo -e "其实就是一个反代...明白就好..."
 		echo -e "如果不能伪装成功...可以使用 v2ray config 修改伪装的网址"
-		read -p "$(echo -e "(默认: [${cyan}https://liyafly.com$none]):")" proxy_site
-		[[ -z $proxy_site ]] && proxy_site="https://liyafly.com"
-
+		#read -p "$(echo -e "(默认: [${cyan}https://liyafly.com$none]):")" proxy_site
+		#[[ -z $proxy_site ]] && proxy_site="https://liyafly.com"
+		proxy_site="https://liyafly.com"
 		case $proxy_site in
 		*[#$]*)
 			echo
