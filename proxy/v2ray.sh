@@ -352,7 +352,8 @@ tls_config() {
 
 	while :; do
 
-		read -p "$(echo -e "(是否已经正确解析: [${magenta}Y$none]):") " record
+		#read -p "$(echo -e "(是否已经正确解析: [${magenta}Y$none]):") " record
+		record=Y
 		if [[ -z "$record" ]]; then
 			error
 		else
