@@ -516,10 +516,10 @@ proxy_site_config() {
 blocked_hosts() {
 	echo
 	while :; do
-		echo -e "是否开启广告拦截(会影响性能) [${magenta}Y/N$none]"
-		read -p "$(echo -e "(默认 [${cyan}N$none]):")" blocked_ad
-		[[ -z $blocked_ad ]] && blocked_ad="n"
-
+		#echo -e "是否开启广告拦截(会影响性能) [${magenta}Y/N$none]"
+		#read -p "$(echo -e "(默认 [${cyan}N$none]):")" blocked_ad
+		#[[ -z $blocked_ad ]] && blocked_ad="n"
+		blocked_ad="n"
 		case $blocked_ad in
 		Y | y)
 			blocked_ad_info="开启"
