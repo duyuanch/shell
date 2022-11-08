@@ -552,8 +552,9 @@ shadowsocks_config() {
 
 	while :; do
 		echo -e "是否配置 ${yellow}Shadowsocks${none} [${magenta}Y/N$none]"
-		read -p "$(echo -e "(默认 [${cyan}N$none]):") " install_shadowsocks
-		[[ -z "$install_shadowsocks" ]] && install_shadowsocks="n"
+		#read -p "$(echo -e "(默认 [${cyan}N$none]):") " install_shadowsocks
+		#[[ -z "$install_shadowsocks" ]] && install_shadowsocks="n"
+		install_shadowsocks="n"
 		if [[ "$install_shadowsocks" == [Yy] ]]; then
 			echo
 			shadowsocks=true
