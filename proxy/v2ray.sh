@@ -301,7 +301,7 @@ tls_config() {
 	local random=$(shuf -i20001-65535 -n1)
 	while :; do
 		echo -e "请输入 "$yellow"V2Ray"$none" 端口 ["$magenta"1-65535"$none"]，不能选择 "$magenta"80"$none" 或 "$magenta"443"$none" 端口"
-		read -p "$(echo -e "(默认端口: ${cyan}${random}$none):")" v2ray_port
+		# read -p "$(echo -e "(默认端口: ${cyan}${random}$none):")" v2ray_port
 		[ -z "$v2ray_port" ] && v2ray_port=$random
 		case $v2ray_port in
 		80)
