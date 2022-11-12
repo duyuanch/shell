@@ -1028,6 +1028,7 @@ while :; do
 	echo
 	echo " 2. 卸载"
 	echo
+	ufw disable 
 	if [[ $local_install ]]; then
 		echo -e "$yellow 温馨提示.. 本地安装已启用 ..$none"
 		echo
