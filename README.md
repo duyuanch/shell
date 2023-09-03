@@ -37,6 +37,6 @@ bash <(curl -s -L https://raw.githubusercontent.com/duyuanch/shell/master/proxy/
 ```
 
 ## Donations
-
-You can support me by scanning following QR code. Thanks in advance.
-<div align=center><img src="donate.png" width = "300" div align=center />
+``` bash
+//TODO
+```
